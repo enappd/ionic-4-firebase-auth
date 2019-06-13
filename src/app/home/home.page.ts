@@ -39,76 +39,62 @@ export class HomePage {
   }
 
   updateEmail() {
-    this.fireauth.auth.onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user);
-        user.updateEmail(this.email)
-          .then(() => {
-            this.email = '';
-            this.presentToast('Email updated', false, 'bottom', 1000);
-            this.error = '';
-          })
-          .catch(err => {
-            console.log(` failed ${err}`);
-            this.error = err.message;
-          });
-      }
-    })
+    this.user.updateEmail(this.email)
+      .then(() => {
+        this.email = '';
+        this.presentToast('Email updated', false, 'bottom', 1000);
+        this.error = '';
+      })
+      .catch(err => {
+        console.log(` failed ${err}`);
+        this.error = err.message;
+      });
   }
 
   updateUsername() {
-    this.fireauth.auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.user.updateProfile({
-          displayName: this.username
-        })
-          .then(() => {
-            this.username = '';
-            this.presentToast('Username updated', false, 'bottom', 1000);
-            this.error = '';
-          })
-          .catch(err => {
-            console.log(` failed ${err}`);
-            this.error = err.message;
-          });
-      }
+    this.user.updateProfile({
+      displayName: this.username
     })
+      .then((data) => {
+        console.log(data);
+        this.username = '';
+        this.presentToast('Username updated', false, 'bottom', 1000);
+        this.error = '';
+      })
+      .catch(err => {
+        console.log(` failed ${err}`);
+        this.error = err.message;
+      });
   }
 
   updateImage() {
-    this.fireauth.auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.user.updateProfile({
-          photoURL: `https://picsum.photos/id/${this.image}/200/200`
-        })
-          .then(() => {
-            this.image = null;
-            this.presentToast('Image updated', false, 'bottom', 1000);
-            this.error = '';
-          })
-          .catch(err => {
-            console.log(` failed ${err}`);
-            this.error = err.message;
-          });
-      }
+
+    this.user.updateProfile({
+      photoURL: `https://picsum.photos/id/${this.image}/200/200`
     })
+      .then((data) => {
+        console.log(data);
+        this.image = null;
+        this.presentToast('Image updated', false, 'bottom', 1000);
+        this.error = '';
+      })
+      .catch(err => {
+        console.log(` failed ${err}`);
+        this.error = err.message;
+      });
   }
 
   updatePassword() {
-    this.fireauth.auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.user.updatePassword(this.password)
-          .then(() => {
-            this.password = '';
-            this.presentToast('Password updated', false, 'bottom', 1000);
-            this.error = '';
-          })
-          .catch(err => {
-            console.log(` failed ${err}`);
-            this.error = err.message;
-          });
-      }
-    })
+    this.user.updatePassword(this.password)
+      .then(() => {
+        this.password = '';
+        this.presentToast('Password updated', false, 'bottom', 1000);
+        this.error = '';
+      })
+      .catch(err => {
+        console.log(` failed ${err}`);
+        this.error = err.message;
+      });
   }
 
   logout() {
