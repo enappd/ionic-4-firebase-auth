@@ -1,0 +1,75 @@
+<!-- /**
+* Ionic Firebase Full Auth App  (https://store.enappd.com/product/firebase-starter-full-auth/)
+*
+* Copyright © 2019-present Enappd. All rights reserved.
+*
+* This source code is licensed as per the terms found in the
+* LICENSE.md file in the root directory of this source tree.
+*/  -->
+
+
+<ion-content no-padding>
+  <div class="main">
+    <ion-card no-margin>
+      <ion-card-content>
+        <ion-row class="row">
+          <div class="fire-logo">
+            <img src="assets/firebase.png" class="img-logo">
+            <ion-text>
+              <h2 no-margin margin-vertical text-center>Welcome to Firebase Auth</h2>
+            </ion-text>
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input clearInput type="text" placeholder="Username" [(ngModel)]="username" class="input"
+              padding-horizontal clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input clearInput type="email" placeholder="Email" [(ngModel)]="email" class="input" padding-horizontal
+              clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input clearInput type="password" placeholder="Password" [(ngModel)]="password" class="input"
+              padding-horizontal clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input clearInput type="number" placeholder="Enter a number from 1 to 1000" [(ngModel)]="image"
+              class="input" padding-horizontal clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="signup()" color="undefined" class="transition">
+              <strong class="white">
+                Register</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text class="error" text-center>{{error}}</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text text-center class="block">Already have an account ?
+              <span class="bold" routerLink="/login">Login here</span></ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title text-center>
+      Made by Enappd
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

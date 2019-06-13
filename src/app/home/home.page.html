@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Anonymous Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    Welcome user
+    <p>Here are your profile details</p>
+
+    <ion-item *ngIf="user">
+      <ion-thumbnail slot="start">
+        <img [src]="user.photoURL">
+      </ion-thumbnail>
+      <ion-label text-wrap>
+        <ion-text color="primary">
+          <h3>{{user.displayName}}</h3>
+        </ion-text>
+        <p>{{user.email}}</p>
+      </ion-label>
+    </ion-item>
+  </div>
+  <ion-list-header color="medium">
+    Update Profile
+  </ion-list-header>
+  <ion-item>
+    <ion-label position="fixed">Username</ion-label>
+    <ion-input type="string" placeholder="Enter new" [(ngModel)]="username"></ion-input>
+    <ion-button slot="end" color="success" expand="full" (click)="updateUsername()">Update</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Image</ion-label>
+    <ion-input type="number" placeholder="A number 1-1000" [(ngModel)]="image"></ion-input>
+    <ion-button slot="end" color="success" expand="full" (click)="updateImage()">Update</ion-button>
+  </ion-item>
+  <ion-list-header color="medium">
+    Sensitive Updates
+  </ion-list-header>
+  <ion-item>
+    <ion-label position="fixed">Email</ion-label>
+    <ion-input type="string" placeholder="Enter new" [(ngModel)]="email"></ion-input>
+    <ion-button slot="end" color="success" expand="full" (click)="updateEmail()">Update</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Password</ion-label>
+    <ion-input type="string" placeholder="Enter new" [(ngModel)]="password"></ion-input>
+    <ion-button slot="end" color="success" expand="full" (click)="updatePassword()">Update</ion-button>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-text class="error" text-center>{{error}}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <!-- 
+  <ion-row>
+    <ion-col>
+      <ion-button *ngIf="userWantsToSignup" expand="block" (click)="signup()" color="undefined" class="transition">
+        <strong class="white">
+          Sign Up</strong></ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button *ngIf="!userWantsToSignup" expand="block" (click)="wantsToSignup()" color="undefined"
+        class="transition"><strong class="white">I want to
+          Sign Up</strong></ion-button>
+    </ion-col>
+  </ion-row> -->
+  <ion-row>
+    <ion-col>
+      <ion-text class="error" text-center>{{linkError}}</ion-text>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer class="transition">
+  <ion-toolbar color="undefined" (click)="logout()">
+    <ion-title>
+      Logout
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
